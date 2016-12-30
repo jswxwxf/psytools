@@ -1,0 +1,34 @@
+<ion-view view-title="伯恩斯抑郁状况自查表">
+  <div class="bar bar-subheader bar-positive">
+    <h2 class="title">{{ctrl.getTotalScore()}} - {{ctrl.getResult()}}</h2>
+  </div>
+  <ion-content class="has-subheader">
+
+    <div id="treat-bdc">
+      <div class="list">
+        <span ng-repeat="i in ctrl.items">
+          <div class="item item-divider" ng-if="$index == 0">
+            感想和感受
+          </div>
+          <div class="item item-divider" ng-if="$index == 10">
+            活动和个人关系
+          </div>
+          <div class="item item-divider" ng-if="$index == 22">
+            自杀倾向
+          </div>
+          <label class="item item-input item-select">
+            <div class="input-label">{{i.name}}</div>
+            <select ng-model="ctrl.scores[i.id]">
+              <option value="0">0-完全没有</option>
+              <option value="1">1-有一点</option>
+              <option value="2">2-偶尔</option>
+              <option value="3">3-经常</option>
+              <option value="4">4-极其频繁</option>
+            </select>
+          </label>
+        </span>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

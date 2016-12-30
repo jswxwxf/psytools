@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <!--<link href="lib/ionic/css/ionic.css" rel="stylesheet">-->
+    <!--<link href="css/style.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="dist/ionic.css">
+    <link rel="stylesheet" href="dist/font-awesome.css">
+    <link rel="stylesheet" href="dist/all.css">
+
+  </head>
+  <body ng-app="westleaf">
+
+    <!-- Center content -->
+    <ion-side-menus enable-menu-with-back-views="true">
+      <ion-side-menu-content drag-content="false">
+        <ion-nav-bar class="bar-stable">
+          <ion-nav-buttons side="left">
+            <button class="button button-clear" menu-toggle="left"><span class="icon ion-navicon"></span></button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+      </ion-side-menu-content>
+      <div ng-include="'features/welcome/menu.html'"></div>
+    </ion-side-menus>
+
+    <!-- build:js dist/rt.js -->
+    <!-- ionic/angularjs js -->
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- endbuild -->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- build:js dist/vendor.js -->
+    <script src="lib/ui-router-extras/release/ct-ui-router-extras.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-touch/angular-touch.js"></script>
+    <script src="lib/ngstorage/ngStorage.js"></script>
+    <script src="lib/angular-cache/dist/angular-cache.js"></script>
+    <script src="lib/angular-messages/angular-messages.js"></script>
+    <script src="lib/ionic-wizard/dist/ion-wizard.js"></script>
+    <script src="lib/angular-ui-validate/dist/validate.js"></script>
+    <script src="lib/angular-progress-arc/angular-progress-arc.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
+    <script src="lib/lodash/lodash.js"></script>
+    <script src="lib/async/dist/async.js"></script>
+    <script src="lib/angular-base64-upload/src/angular-base64-upload.js"></script>
+    <script src="lib/exif-js/exif.js"></script>
+    <script src="lib/Chart.js/Chart.js"></script>
+    <script src="lib/tc-angular-chartjs/dist/tc-angular-chartjs.js"></script>
+    <script src="lib/angular-audio/app/angular.audio.js"></script>
+    <script src="lib/jquery-eraser/jquery.eraser.js"></script>
+    <script src="lib/picker/dist/picker.min.js"></script>
+    <script src="lib/polyline/src/polyline.js"></script>
+    <script src="lib/leaflet/dist/leaflet-src.js"></script>
+    <script src="lib/leaflet-providers/leaflet-providers.js"></script>
+    <script src="lib/angulartics/src/angulartics-baidu.js"></script>
+    <script src="lib/angulartics-piwik/src/angulartics-piwik.js"></script>
+    <!-- endbuild -->
+    <script src="lib/ionic-rating/ionic-rating.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="dist/app.js"></script>
+    <script src="dist/templates.js"></script>
+
+  </body>
+</html>

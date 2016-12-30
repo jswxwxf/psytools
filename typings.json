@@ -1,0 +1,12 @@
+{
+  "globalDependencies": {
+    "angular": "registry:dt/angular#1.5.0+20160725073351",
+    "angular-ui-router": "registry:dt/angular-ui-router#1.1.5+20160707113237",
+    "cordova": "registry:dt/cordova#0.0.0+20160819210047",
+    "cordova-plugin-device": "registry:dt/cordova-plugin-device#0.0.0+20160919075538",
+    "ionic": "registry:dt/ionic#0.0.0+20160915014424",
+    "jquery": "registry:dt/jquery#1.10.0+20161119044246",
+    "lodash": "registry:global/lodash#4.0.0+20160723033700",
+    "moment": "registry:dt/moment#2.11.1+20161010105546"
+  }
+}
