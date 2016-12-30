@@ -28,7 +28,8 @@ var paths = {
   styles: [ lcbweb.app + '/**/*.scss', '!' + lcbweb.app + '/lib/**/*.scss', '!' + lcbweb.app + '/styles/ionic.scss', '!' + lcbweb.app + '/styles/font-awesome.scss' ],
   ionic: [ lcbweb.app + '/styles/ionic.scss' ],
   fa: [ lcbweb.app + '/styles/font-awesome.scss' ],
-  templates: [ lcbweb.app + '/features/**/*.html', lcbweb.app + '/components/**/*.html' ]
+  templates: [ lcbweb.app + '/features/**/*.html', lcbweb.app + '/components/**/*.html' ],
+  index_pages: [ lcbweb.app + '/*.html' ],
 };
 
 ////////////////////////
@@ -173,5 +174,5 @@ gulp.task('clean', function (cb) {
 });
 
 gulp.task('build', [ 'browserify', 'styles', 'templates' ]);
-gulp.task('default', [ 'build' ]);
+gulp.task('default', [ 'build', 'usemin' ]);
 gulp.task('watch', [ 'build', '_watch' ]);
