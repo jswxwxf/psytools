@@ -8,7 +8,7 @@ var app = angular.module('westleaf', [
   'ionic',
   'ngAnimate', 'ngMessages', 'ngCookies', 'ngStorage', 'ngTouch', 'ngAudio',
   'angular-cache', 'angular-progress-arc',
-  'ionic.wizard', 'ionic.rating',
+  'ionic.rating',
   'ui.validate',
   'naif.base64',
   'tc.chartjs'
