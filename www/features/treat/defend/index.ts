@@ -15,7 +15,7 @@ export var states = ($stateProvider: angular.ui.IStateProvider) => {
   $stateProvider
     .state('treat.defend', {
       url: '/defend',
-      templateUrl: 'features/treat/defend/defend.html',
+      templateUrl: 'features/treat/defend/list.html',
       controller: defendController.controllerName,
       controllerAs: 'ctrl'
     });

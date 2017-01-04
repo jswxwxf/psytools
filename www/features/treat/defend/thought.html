@@ -1,12 +1,12 @@
-<ion-modal-view id="treat-defend-import-container">
+<ion-modal-view id="treat-defend-thought-container">
   <ion-header-bar class="bar-dark">
-    <button class="button button-clear button-light" ng-click="ctrl.hideModal('import')">关闭</button>
+    <button class="button button-clear" ng-click="ctrl.hideModal('thought')">关闭</button>
     <h1 class="title">想法</h1>
-    <button class="button button-clear">保存</button>
+    <button class="button button-clear" ng-click="ctrl.saveThought()">保存</button>
   </ion-header-bar>
   <ion-content>
 
-    <form id="treat-defend-import" name="ctrl.importForm" class="list" novalidate>
+    <form id="treat-defend-thought" name="ctrl.importForm" class="list" novalidate>
       <label class="item item-input">
         <textarea id="content" ng-model="ctrl.thought.content" placeholder="请输入或粘贴你的想法，回一次车代表一个想法" required></textarea>
       </label>

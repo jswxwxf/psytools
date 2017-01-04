@@ -1,13 +1,16 @@
-<ion-view view-title="想法反驳器">
-  <ion-nav-buttons side="right">
-    <button class="button button-clear" ng-click="ctrl.showImport()">
-      写下想法
-    </button>
-  </ion-nav-buttons>
+<ion-modal-view id="treat-defend-container">
+  <ion-header-bar class="bar-dark">
+    <button class="button button-clear" ng-click="ctrl.hideModal('defend')">关闭</button>
+    <h1 class="title">反驳</h1>
+    <button class="button button-clear" ng-click="ctrl.saveDefend()">保存</button>
+  </ion-header-bar>
   <ion-content>
 
-    <div id="treat-defend">
-    </div>
+    <form id="treat-defend" name="ctrl.importForm" class="list" novalidate>
+      <label class="item item-input">
+        <textarea id="content" ng-model="ctrl.thought.content" required></textarea>
+      </label>
+    </form>
 
   </ion-content>
-</ion-view>
+</ion-modal-view>
