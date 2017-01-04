@@ -9,10 +9,20 @@ export var controllerName = 'treat.defend.DefendController';
 
 class DefendController extends BaseController {
 
-  static $inject = ['$scope', common.utilService.serviceName, services.defendService.serviceName];
+  thought;
 
-  constructor(private $scope, private utilService: common.utilService.Service, private defendService: services.defendService.Service) {
+  static $inject = ['$scope', '$timeout', '$ionicScrollDelegate', common.utilService.serviceName, services.defendService.serviceName];
+
+  constructor(private $scope, private $timeout, private $ionicScrollDelegate, private utilService: common.utilService.Service, private defendService: services.defendService.Service) {
     super($scope, utilService);
+    super.setModalSrc('import', 'features/treat/defend/import.html');
+    $scope.$on('modal.shown', () => {
+      // $('#content').height($('#treat-defend-import-container').height() - 150);
+    });
+  }
+
+  showImport() {
+    this.showModal('import');
   }
 
 }

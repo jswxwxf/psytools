@@ -176,3 +176,4 @@ gulp.task('clean', function (cb) {
 gulp.task('build', [ 'browserify', 'styles', 'templates' ]);
 gulp.task('default', [ 'build', 'usemin' ]);
 gulp.task('watch', [ 'build', '_watch' ]);
+gulp.task('serve:before', ['watch']);
