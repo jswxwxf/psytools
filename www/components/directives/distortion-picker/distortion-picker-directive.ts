@@ -3,6 +3,7 @@
 export var directiveName = 'wlDistortionPicker';
 
 import controller = require('./distortion-picker-controller');
+import {Utils} from "../../../utility/index";
 
 class DistortionPickerDirective implements angular.IDirective {
 
@@ -20,7 +21,7 @@ class DistortionPickerDirective implements angular.IDirective {
   replace = true;
   transclude = true;
 
-  //require = ['ngModel', 'carSelector'];
+  require = ['ngModel', 'wlDistortionPicker'];
   controller = controller.Controller;
   controllerAs = 'ctrl';
   bindToController = true;
@@ -32,7 +33,23 @@ class DistortionPickerDirective implements angular.IDirective {
   // ↑                                                  UI changed
   //                                                        ↓
   // ngModelCtrl.$parsers(newViewValue)    ←    $setViewValue(newViewValue)
-  link = (scope: angular.IScope, el: angular.IAugmentedJQuery, attrs: any) => {
+  link = (scope: angular.IScope, el: angular.IAugmentedJQuery, attrs: any, ctrls) => {
+
+    var modelCtrl = ctrls[0];
+    var ctrl = ctrls[1];
+
+    // add validation
+    modelCtrl.$parsers.push(function(viewValue) {
+      modelCtrl.$setValidity('required', !Utils.isEmpty(viewValue));
+      return viewValue;
+    });
+
+    modelCtrl.$render = function () {
+      ctrl.setDistortion(modelCtrl.$viewValue);
+    };
+
+    scope.$watch(() => ctrl.selectedDistortion, (newValue) => modelCtrl.$setViewValue(newValue));
+
   }
 
 }

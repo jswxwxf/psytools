@@ -12,6 +12,8 @@ class DefendController extends BaseController {
   thoughts = [];
   thought;
 
+  defend;
+
   static $inject = ['$scope', '$timeout', '$ionicScrollDelegate', common.utilService.serviceName, services.defendService.serviceName];
 
   constructor(private $scope, private $timeout, private $ionicScrollDelegate, private utilService: common.utilService.Service, private defendService: services.defendService.Service) {
@@ -23,7 +25,7 @@ class DefendController extends BaseController {
     });
   }
 
-  showImport() {
+  showThought() {
     this.thought = { content: '' };
     this.showModal('thought');
   }
@@ -35,11 +37,19 @@ class DefendController extends BaseController {
 
   splitThoughts() {
     if (_.isEmpty(this.thought.content)) return [];
-    return _.compact(this.thought.content.split('\n'));
+    return _.map(_.compact(this.thought.content.split('\n')), v => { return { content: v } });
   }
 
-  showDefend() {
+  showDefend(thought) {
+    this.thought = thought;
+    this.defend = {};
     this.showModal('defend');
+  }
+
+  saveDefend() {
+    if (!this.thought.defends) this.thought.defends = [];
+    this.thought.defends.push(this.defend);
+    this.hideModal('defend');
   }
 
 }

@@ -1,13 +1,14 @@
 <ion-modal-view class="wl-distortion-switcher-modal-container">
   <ion-header-bar class="bar-dark">
+    <button class="button button-clear" ng-click="ctrl.cancel()">关闭</button>
     <h1 class="title">十大认知扭曲</h1>
-    <button class="button button-clear" ng-click="ctrl.hideModal('distortions')">关闭</button>
+    <button class="button button-clear" ng-click="ctrl.setDistortion()">确定</button>
   </ion-header-bar>
-  <ion-content overflow-scroll="true">
+  <ion-content overflow-scroll="true" delegate-handle="distortion-handle">
 
     <div class="wl-distortion-switcher-modal lcb-selectable">
       <div class="card" ng-repeat="(k, d) in ctrl.distortions track by k">
-        <wl-radio ng-model="ctrl.selectedDistortion" ng-value="k" class="item-checkbox-right checkbox-stable" required><span>{{ctrl.padKey(k)}}</span>: {{d.name}}</wl-radio>
+        <wl-radio ng-model="ctrl._selectedDistortion" ng-value="k" class="item-checkbox-right checkbox-stable" required><span>{{ctrl.padKey(k)}}</span>: {{d.name}}</wl-radio>
         <div class="item item-text-wrap">
           <span ng-bind-html="ctrl.renderValue(d.description)"></span>
         </div>

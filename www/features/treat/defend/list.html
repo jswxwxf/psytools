@@ -1,6 +1,6 @@
 <ion-view view-title="想法反驳器">
   <ion-nav-buttons side="right">
-    <button class="button button-clear" ng-click="ctrl.showImport()">
+    <button class="button button-clear" ng-click="ctrl.showThought()">
       写下想法
     </button>
   </ion-nav-buttons>
@@ -9,18 +9,14 @@
     <div id="treat-defend-list">
       <div class="card" ng-repeat="t in ctrl.thoughts track by $index">
         <div class="item item-text-wrap">
-          {{t}}
+          {{t.content}}
         </div>
-        <a class="item item-icon-right" href="javascript:void(0)">
-          <i class="icon ion-chatbubble-working"></i>
-          Call Ma
-          <span class="item-note">
-            Grammy
-          </span>
-          <i class="icon ion-ios-telephone-outline"></i>
+        <a class="item item-icon-right" href="javascript:void(0)" ng-repeat="d in t.defends">
+          {{d.distortion}}: {{d.content}}
+          <i class="icon ion-chevron-right lcb-normal-font"></i>
         </a>
         <div class="item item-divider">
-          <a href="javascript:void(0)" class="subdued pull-right" ng-click="ctrl.showDefend()">添加反驳</a>
+          <a href="javascript:void(0)" class="subdued pull-right" ng-click="ctrl.showDefend(t)">添加反驳</a>
         </div>
       </div>
     </div>
