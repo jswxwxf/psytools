@@ -30,6 +30,11 @@ class DistortionPickerController extends BaseController {
     this.hideModal('distortions');
   }
 
+  reset() {
+    this._selectedDistortion = null;
+    this.selectedDistortion = null;
+  }
+
   setDistortion(distortion?) {
     if (distortion) this._selectedDistortion = distortion;
     this.selectedDistortion = this._selectedDistortion;

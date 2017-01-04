@@ -11,7 +11,7 @@
         <div class="item item-text-wrap">
           {{t.content}}
         </div>
-        <a class="item item-icon-right" href="javascript:void(0)" ng-repeat="d in t.defends">
+        <a class="item item-icon-right" href="javascript:void(0)" ng-repeat="d in t.defends" ng-click="ctrl.showDefend(t, d)">
           {{d.distortion}}: {{d.content}}
           <i class="icon ion-chevron-right lcb-normal-font"></i>
         </a>

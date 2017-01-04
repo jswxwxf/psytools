@@ -40,15 +40,16 @@ class DefendController extends BaseController {
     return _.map(_.compact(this.thought.content.split('\n')), v => { return { content: v } });
   }
 
-  showDefend(thought) {
+  showDefend(thought, defend = {}) {
     this.thought = thought;
-    this.defend = {};
+    this.defend = defend;
     this.showModal('defend');
   }
 
   saveDefend() {
     if (!this.thought.defends) this.thought.defends = [];
-    this.thought.defends.push(this.defend);
+    var found = _.find(this.thought.defends, 'distortion', this.defend.distortion);
+    if (!found) this.thought.defends.push(this.defend);
     this.hideModal('defend');
   }
 

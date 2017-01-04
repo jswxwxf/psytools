@@ -48,6 +48,12 @@ class DistortionPickerDirective implements angular.IDirective {
       ctrl.setDistortion(modelCtrl.$viewValue);
     };
 
+    modelCtrl.$formatters.push(function(modelValue) {
+      if (!modelValue) ctrl.reset();
+      ctrl.setDistortion(modelValue);
+      return modelValue;
+    });
+
     scope.$watch(() => ctrl.selectedDistortion, (newValue) => modelCtrl.$setViewValue(newValue));
 
   }
