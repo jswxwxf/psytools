@@ -6,7 +6,6 @@
     "cordova-plugin-device": "registry:dt/cordova-plugin-device#0.0.0+20160919075538",
     "ionic": "registry:dt/ionic#0.0.0+20160915014424",
     "jquery": "registry:dt/jquery#1.10.0+20161119044246",
-    "lodash": "registry:global/lodash#4.0.0+20160723033700",
     "moment": "registry:dt/moment#2.11.1+20161010105546"
   }
 }

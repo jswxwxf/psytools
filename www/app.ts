@@ -17,7 +17,7 @@ var app = angular.module('westleaf', [
 import {Config} from './config/config';
 
 import common = require('./utility/index'); common.load(app);
-// import directives = require('./components/directives/index'); directives.load(app);
+import directives = require('./components/directives/index'); directives.load(app);
 // import components = require('./components/components/index'); components.load(app);
 // import filters = require('./components/filters/index'); filters.load(app);
 import services = require('./components/services/index'); services.load(app);
