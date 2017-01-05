@@ -7,14 +7,10 @@
   <ion-content overflow-scroll="true" delegate-handle="distortion-handle">
 
     <div class="wl-distortion-switcher-modal lcb-selectable">
-      <div class="list card" ng-repeat="(k, d) in ctrl.distortions track by k">
-        <wl-radio ng-model="ctrl._selectedDistortion" ng-value="k" class="item-checkbox-right checkbox-stable" required><span>{{ctrl.padKey(d.id)}}</span>: {{d.name}}</wl-radio>
-        <div class="item item-text-wrap">
-          <span ng-bind-html="ctrl.renderValue(d.description)"></span>
-        </div>
-        <div class="item item-text-wrap" ng-if="d.example">
-          <!--<button class="button button-small button-block button-stable"><i class="fa fa-angle-double-down"></i> 显示示例</button>-->
-          <span ng-bind-html="ctrl.renderValue(d.example)"></span>
+      <div class="list" ng-repeat="(k, d) in ctrl.distortions track by k">
+        <div>
+          <button class="button pull-right">解释</button>
+          <wl-radio ng-model="ctrl._selectedDistortion" ng-value="k" class="item-checkbox-right checkbox-stable" required>{{d.name}}</wl-radio>
         </div>
       </div>
     </div>

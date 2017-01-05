@@ -3,13 +3,22 @@
 }
 
 .wl-distortion-switcher-modal {
-  .item-text-wrap p {
-    font-size: 10.5pt;
-  }
-  .item-checkbox {
-    background-color: #f5f5f5;
-  }
-  .button {
+
+  .list {
+    padding: 0;
     margin: 0;
+    .item-text-wrap p {
+      font-size: 10.5pt;
+    }
+    .item-checkbox {
+      background-color: #f5f5f5;
+    }
+    .button {
+      line-height: 53px;
+      margin: 0;
+      border: 1px dashed #ddd;
+      border-radius: 0;
+      margin-left: -1px;
+    }
   }
 }
