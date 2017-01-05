@@ -2,9 +2,9 @@
   <ion-nav-buttons side="right">
     <button class="button button-clear" ng-click="ctrl.exportThought()">导出文本</button>
   </ion-nav-buttons>
-  <ion-content>
+  <ion-content overflow-scroll="true">
 
-    <div id="treat-defend-list">
+    <div id="treat-defend-list" class="lcb-selectable">
 
       <div class="card" ng-repeat="t in ctrl.thoughts track by $index">
         <div class="item item-text-wrap">
