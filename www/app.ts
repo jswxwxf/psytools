@@ -5,8 +5,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('westleaf', [
-  'ionic',
-  'ngAnimate', 'ngMessages', 'ngCookies', 'ngStorage', 'ngTouch', 'ngAudio',
+  'ionic', 'ngAnimate', 'ngSanitize',
+  'ngMessages', 'ngCookies', 'ngStorage', 'ngTouch', 'ngAudio',
   'angular-cache', 'angular-progress-arc',
   'ionic.rating',
   'ui.validate',

@@ -10,3 +10,5 @@ interface Window {
 interface CordovaPlugins {
   Keyboard: any;
 }
+
+declare var jsyaml: any;

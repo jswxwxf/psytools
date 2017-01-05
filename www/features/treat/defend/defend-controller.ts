@@ -14,9 +14,9 @@ class DefendController extends BaseController {
 
   defend;
 
-  static $inject = ['$scope', '$timeout', '$ionicScrollDelegate', common.utilService.serviceName, services.defendService.serviceName];
+  static $inject = ['$scope', '$q', '$timeout', '$ionicScrollDelegate', common.utilService.serviceName, services.defendService.serviceName];
 
-  constructor(private $scope, private $timeout, private $ionicScrollDelegate, private utilService: common.utilService.Service, private defendService: services.defendService.Service) {
+  constructor(private $scope, private $q, private $timeout, private $ionicScrollDelegate, private utilService: common.utilService.Service, private defendService: services.defendService.Service) {
     super($scope, utilService);
     super.setModalSrc('thought', 'features/treat/defend/thought.html');
     super.setModalSrc('defend', 'features/treat/defend/defend.html');

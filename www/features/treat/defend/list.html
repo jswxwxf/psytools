@@ -1,25 +1,33 @@
 <ion-view view-title="想法反驳器">
   <ion-nav-buttons side="right">
-    <button class="button button-clear" ng-click="ctrl.showThought()">
-      写下想法
+    <button class="button button-clear">
+      导出文本
     </button>
   </ion-nav-buttons>
   <ion-content>
 
     <div id="treat-defend-list">
+
       <div class="card" ng-repeat="t in ctrl.thoughts track by $index">
         <div class="item item-text-wrap">
           {{t.content}}
         </div>
-        <a class="item item-icon-right" href="javascript:void(0)" ng-repeat="d in t.defends" ng-click="ctrl.showDefend(t, d)">
-          {{d.distortion}}: {{d.content}}
+        <a class="item item-text-wrap item-icon-right dark" href="javascript:void(0)" ng-repeat="d in t.defends" ng-click="ctrl.showDefend(t, d)">
+          <span class="lcb-bold">{{d.distortion}}</span>: {{d.content}}
           <i class="icon ion-chevron-right lcb-normal-font"></i>
         </a>
         <div class="item item-divider">
-          <a href="javascript:void(0)" class="subdued pull-right" ng-click="ctrl.showDefend(t)">添加反驳</a>
+          <span class="pull-right">
+            <a href="javascript:void(0)" class="subdued" ng-click="ctrl.showDefend(t)">添加反驳</a>
+            <a href="javascript:void(0)" class="subdued">删除想法</a>
+          </span>
         </div>
       </div>
+
     </div>
 
   </ion-content>
+  <ion-footer-bar class="lcb-footer-button-container">
+    <button type="button" class="button button-block button-stable" ng-click="ctrl.showThought()">写下想法</button>
+  </ion-footer-bar>
 </ion-view>
