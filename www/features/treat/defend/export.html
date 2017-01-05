@@ -1,0 +1,13 @@
+<ion-modal-view id="treat-defend-export-container">
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">导出想法</h1>
+    <button class="button button-clear" ng-click="ctrl.hideModal('export')">关闭</button>
+  </ion-header-bar>
+  <ion-content overflow-scroll="true">
+
+    <pre id="treat-defend-export" class="padding lcb-selectable">
+{{ctrl.dump}}
+    </pre>
+
+  </ion-content>
+</ion-modal-view>
