@@ -63,7 +63,7 @@ class DefendController extends BaseController {
   }
 
   exportThought() {
-    this.dump = _.trimLeft(jsyaml.dump(angular.copy(this.thoughts)));
+    this.dump = _.trim(jsyaml.dump(angular.copy(this.thoughts)));
     this.showModal('export');
   }
 
