@@ -34,12 +34,18 @@ class DefendController extends BaseController {
   }
 
   saveThought() {
-    Array.prototype.push.apply(this.thoughts, this.splitThoughts());
+    var thought = jsyaml.load(this.thought.content);
+    if (angular.isObject(thought)) {
+      this.thoughts = thought;
+    } else {
+      thought = this.splitThoughts(thought);
+      Array.prototype.push.apply(this.thoughts, this.splitThoughts(thought));
+    }
     this.hideModal('thought');
   }
 
-  splitThoughts() {
-    if (_.isEmpty(this.thought.content)) return [];
+  splitThoughts(thought) {
+    if (_.isEmpty(thought)) return [];
     return _.map(_.compact(this.thought.content.split('\n')), v => { return { content: v } });
   }
 
