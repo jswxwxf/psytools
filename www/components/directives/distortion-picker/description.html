@@ -1,0 +1,31 @@
+<ion-modal-view class="wl-distortion-description-modal-container">
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{ctrl.describeDistortion.name}}</h1>
+    <button class="button button-clear" ng-click="ctrl.hideModal('description')">关闭</button>
+  </ion-header-bar>
+  <ion-content overflow-scroll="true" delegate-handle="description-handle">
+
+    <div class="wl-distortion-description-modal lcb-selectable">
+
+      <div class="card">
+        <div class="item item-divider">
+          解释
+        </div>
+        <div class="item item-text-wrap">
+          <div ng-bind-html="ctrl.renderValue(ctrl.describeDistortion.description)"></div>
+        </div>
+      </div>
+
+      <div class="card" ng-if="ctrl.describeDistortion.example">
+        <div class="item item-divider">
+          示例
+        </div>
+        <div class="item item-text-wrap">
+          <div ng-bind-html="ctrl.renderValue(ctrl.describeDistortion.example)"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-modal-view>

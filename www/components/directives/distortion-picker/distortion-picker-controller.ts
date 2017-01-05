@@ -10,19 +10,28 @@ class DistortionPickerController extends BaseController {
   selectedDistortion;
   _selectedDistortion;
 
+  describeDistortion;
+
   static $inject = ['$q', '$scope', '$ionicScrollDelegate', common.utilService.serviceName, services.defendService.serviceName];
 
   constructor(private $q, public $scope, private $ionicScrollDelegate, private utilService: common.utilService.Service, private defendService: services.defendService.Service) {
     super($scope, utilService);
     super.setModalSrc('distortions', 'components/directives/distortion-picker/distortions.html');
+    super.setModalSrc('description', 'components/directives/distortion-picker/description.html');
     this.distortions = _.indexBy(this.defendService.getDistortions(), 'name');
     $scope.$on('modal.shown', () => {
       this.$ionicScrollDelegate.$getByHandle('distortion-handle').scrollTop(true);
+      this.$ionicScrollDelegate.$getByHandle('description-handle').scrollTop(true);
     });
   }
 
   showPicker() {
     this.showModal('distortions');
+  }
+
+  showDescription(distortion) {
+    this.describeDistortion = distortion;
+    this.showModal('description');
   }
 
   cancel() {
@@ -44,10 +53,6 @@ class DistortionPickerController extends BaseController {
   getDisplayText() {
     if (!this.selectedDistortion) return '请选择';
     return this.distortions[this.selectedDistortion].name;
-  }
-
-  padKey(k) {
-    return _.padLeft(k, 3, '0');
   }
 
   renderValue(v) {
