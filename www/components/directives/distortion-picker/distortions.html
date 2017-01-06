@@ -8,9 +8,11 @@
 
     <div class="wl-distortion-switcher-modal lcb-selectable">
       <div class="list" ng-repeat="(k, d) in ctrl.distortions track by k">
-        <div>
-          <button class="button pull-right" ng-click="ctrl.showDescription(d)">解释</button>
-          <wl-radio ng-model="ctrl._selectedDistortion" ng-value="k" class="item-checkbox-right checkbox-stable" required>{{d.name}}</wl-radio>
+        <div class="row row-no-padding">
+          <div class="col">
+            <wl-radio ng-model="ctrl._selectedDistortion" ng-value="k" class="item-checkbox-right checkbox-stable" required>{{d.name}}</wl-radio>
+          </div>
+          <button class="button col col-20" ng-click="ctrl.showDescription(d)">解释</button>
         </div>
       </div>
     </div>
