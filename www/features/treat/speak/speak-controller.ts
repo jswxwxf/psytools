@@ -10,6 +10,10 @@ export var controllerName = 'treat.speak.SpeakController';
 class SpeakController extends BaseController {
 
   content;
+  pauseLength = 5;
+
+  toRead: any[];
+  reading;
 
   static $inject = ['$scope', '$q', '$timeout', common.utilService.serviceName, services.speechService.serviceName];
 
@@ -18,7 +22,16 @@ class SpeakController extends BaseController {
   }
 
   speak() {
-    this.speechService.speak(this.content).catch(reason => {
+    this.toRead = _.compact(this.content.split('\n\n'));
+    this._speak();
+  }
+
+  _speak() {
+    this.reading = this.toRead.shift();
+    if (!this.reading) return;
+    this.speechService.speak(this.reading).then(done => {
+      this.$timeout(() => this._speak(), this.pauseLength * 1000); // 等两秒读下一句
+    }).catch(reason => {
       this.utilService.alert(reason);
     });
   }

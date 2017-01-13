@@ -21,7 +21,6 @@ class SpeechService extends baseService.Service {
       locale: 'zh-CN',
       rate: 1.8
     }, options);
-    this.utilService.alert(angular.toJson(options));
     return this.$q((resolve, reject) => {
       if (!window['TTS']) return reject('TTS not available!');
       TTS.speak(options, () => resolve('succeed!'), reason => reject(reason));

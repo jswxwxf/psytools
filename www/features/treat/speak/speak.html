@@ -5,9 +5,33 @@
   <ion-content>
 
     <form id="treat-speak" name="speakForm" class="list" novalidate>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          选择文章
+        </div>
+        <select>
+          <option>Blue</option>
+          <option selected>Green</option>
+          <option>Red</option>
+        </select>
+      </label>
       <label class="item item-input">
         <textarea id="content" ng-model="ctrl.content" required></textarea>
       </label>
+      <div class="item item-divider">
+        中间停顿时间（{{ctrl.pauseLength}}秒）
+      </div>
+      <div class="item range range-positive">
+        <i class="icon fa fa-pause-circle-o"></i>
+        <input type="range" name="volume" min="0" max="10" ng-model="ctrl.pauseLength">
+        <i class="icon fa fa-pause-circle"></i>
+      </div>
+      <div class="item item-divider">
+        正在朗读
+      </div>
+      <div class="item item-text-wrap">
+        {{ctrl.reading}}
+      </div>
     </form>
 
   </ion-content>
