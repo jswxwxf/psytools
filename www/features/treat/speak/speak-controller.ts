@@ -9,29 +9,56 @@ export var controllerName = 'treat.speak.SpeakController';
 
 class SpeakController extends BaseController {
 
+  articles;
+  article;
+
   content;
-  pauseLength = 5;
+  pauseLength = 3;
 
   toRead: any[];
   reading;
+  started = false;
+
+  timer;
 
   static $inject = ['$scope', '$q', '$timeout', common.utilService.serviceName, services.speechService.serviceName];
 
   constructor(private $scope, private $q, private $timeout, private utilService: common.utilService.Service, private speechService: services.speechService.Service) {
     super($scope, utilService);
+    this.articles = speechService.getArticles();
+    $scope.$watch(() => this.article, this.articleChanged.bind(this))
+  }
+
+  articleChanged(newVal, oldVal) {
+    if (!newVal) return;
+    this.content = newVal.content;
+  }
+
+  stop() {
+    this.started = false;
+    if (this.timer) this.$timeout.cancel(this.timer);
+    this.speechService.speak('');
   }
 
   speak() {
+    if (!this.content) return;
+    this.started = true;
     this.toRead = _.compact(this.content.split('\n\n'));
     this._speak();
   }
 
   _speak() {
+    if (!this.started) return;
     this.reading = this.toRead.shift();
-    if (!this.reading) return;
+    if (!this.reading) {
+      // 读结束了
+      this.started = false;
+      return;
+    }
     this.speechService.speak(this.reading).then(done => {
-      this.$timeout(() => this._speak(), this.pauseLength * 1000); // 等两秒读下一句
+      this.timer = this.$timeout(() => this._speak(), this.pauseLength * 1000); // 等两秒读下一句
     }).catch(reason => {
+      this.started = false;
       this.utilService.alert(reason);
     });
   }

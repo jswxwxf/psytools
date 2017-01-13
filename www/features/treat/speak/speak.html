@@ -1,6 +1,7 @@
-<ion-view view-title="Speak">
+<ion-view view-title="Speak" id="treat-speak-container">
   <ion-nav-buttons side="right">
-    <button class="button button-clear" ng-click="ctrl.speak()">朗读</button>
+    <button class="button button-clear" ng-click="ctrl.speak()" ng-show="!ctrl.started">朗读</button>
+    <button class="button button-clear" ng-click="ctrl.stop()" ng-show="ctrl.started">停止</button>
   </ion-nav-buttons>
   <ion-content>
 
@@ -9,10 +10,8 @@
         <div class="input-label">
           选择文章
         </div>
-        <select>
-          <option>Blue</option>
-          <option selected>Green</option>
-          <option>Red</option>
+        <select ng-model="ctrl.article" ng-options="article.name for article in ctrl.articles">
+          <option value="">请选择文章</option>
         </select>
       </label>
       <label class="item item-input">

@@ -33,7 +33,8 @@
     "leaflet": "^1.0.1",
     "leaflet-providers": "^1.1.15",
     "polyline": "https://github.com/mapbox/polyline.git#^0.2.0",
-    "picker": "https://github.com/ustbhuangyi/picker.git"
+    "picker": "https://github.com/ustbhuangyi/picker.git",
+    "ngCordova": "^0.1.27-alpha"
   },
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.3.2"

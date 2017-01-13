@@ -20,4 +20,13 @@
     }
   }
 
+  .item:last-child {
+    border-bottom: none;
+    line-height: 18pt;
+  }
+
+}
+
+#treat-speak-container {
+  background-color: white;
 }

@@ -13,6 +13,10 @@ interface CordovaPlugins {
 
 declare var jsyaml: any;
 
+declare var SpeechSynthesisUtterance: any;
+
+declare var speechSynthesis: any;
+
 declare module TTS {
 
   interface IOptions {
