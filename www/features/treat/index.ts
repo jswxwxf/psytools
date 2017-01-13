@@ -7,10 +7,12 @@ import config = require('../../config/config');
 
 import bdc = require('./bdc/index');
 import defend = require('./defend/index');
+import speak = require('./speak/index');
 
 export var load = (app: angular.IModule) => {
   bdc.load(app);
   defend.load(app);
+  speak.load(app);
 };
 
 export var states = ($stateProvider: angular.ui.IStateProvider) => {
@@ -24,5 +26,6 @@ export var states = ($stateProvider: angular.ui.IStateProvider) => {
 
   bdc.states($stateProvider);
   defend.states($stateProvider);
+  speak.states($stateProvider);
 
 };

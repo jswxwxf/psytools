@@ -5,8 +5,10 @@ import config = require('../../config/config');
 // import services = require('../../components/services/index');
 // import enums = require('../../enums/index');
 
-export var load = (app: angular.IModule) => {
+import welcomeController = require('./welcome-controller');
 
+export var load = (app: angular.IModule) => {
+  app.controller(welcomeController.controllerName, welcomeController.Controller);
 };
 
 export var states = ($stateProvider: angular.ui.IStateProvider) => {
@@ -15,6 +17,8 @@ export var states = ($stateProvider: angular.ui.IStateProvider) => {
     .state('welcome', {
       url: '/welcome',
       templateUrl: 'features/welcome/welcome.html',
+      controller: welcomeController.controllerName,
+      controllerAs: 'ctrl'
     });
 
 };

@@ -1,0 +1,23 @@
+#treat-speak {
+
+  #content {
+    height: 250px;
+    padding-left: 0;
+    margin-right: 15px;
+    font-size: 12pt;
+    line-height: 18pt;
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      line-height: 25px;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      line-height: 25px;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      line-height: 25px;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      line-height: 25px;
+    }
+  }
+
+}

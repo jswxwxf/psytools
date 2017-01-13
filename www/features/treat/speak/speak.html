@@ -1,0 +1,14 @@
+<ion-view view-title="Speak">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="ctrl.speak()">朗读</button>
+  </ion-nav-buttons>
+  <ion-content>
+
+    <form id="treat-speak" name="speakForm" class="list" novalidate>
+      <label class="item item-input">
+        <textarea id="content" ng-model="ctrl.content" required></textarea>
+      </label>
+    </form>
+
+  </ion-content>
+</ion-view>
