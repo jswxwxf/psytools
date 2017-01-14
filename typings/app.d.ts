@@ -5,6 +5,7 @@ interface Window {
   StatusBar: any;
   Navigator: any;
   DeviceMotionEvent: any;
+  plugins: any;
 }
 
 interface CordovaPlugins {

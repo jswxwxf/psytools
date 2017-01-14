@@ -65,29 +65,12 @@ class SpeechService extends baseService.Service {
     }
     options = angular.merge({
       locale: 'zh-CN',
-      rate: 1.8
+      rate: 1.78
     }, options);
     return this.$q((resolve, reject) => {
       if (!window['TTS']) return reject('TTS not available!');
       TTS.speak(options, () => resolve('succeed!'), reason => reject(reason));
     });
-  }
-
-  browserSpeak(textToSpeak) {
-
-    // Create a new instance of SpeechSynthesisUtterance
-    var newUtterance = new SpeechSynthesisUtterance();
-
-    newUtterance.pitch = 1;
-    newUtterance.rate = 1.8;
-    newUtterance.lang = 'zh-CN';
-
-    // Set the text
-    newUtterance.text = textToSpeak;
-
-    // Add this text to the utterance queue
-    speechSynthesis.speak(newUtterance);
-
   }
 
   getArticles() {

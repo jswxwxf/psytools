@@ -21,9 +21,9 @@ class SpeakController extends BaseController {
 
   timer;
 
-  static $inject = ['$scope', '$q', '$timeout', common.utilService.serviceName, services.speechService.serviceName];
+  static $inject = ['$scope', '$q', '$timeout', common.utilService.serviceName, services.speechService.serviceName, services.cordovaService.serviceName];
 
-  constructor(private $scope, private $q, private $timeout, private utilService: common.utilService.Service, private speechService: services.speechService.Service) {
+  constructor(private $scope, private $q, private $timeout, private utilService: common.utilService.Service, private speechService: services.speechService.Service, private cordovaService: services.cordovaService.Service) {
     super($scope, utilService);
     this.articles = speechService.getArticles();
     $scope.$watch(() => this.article, this.articleChanged.bind(this))
@@ -36,6 +36,7 @@ class SpeakController extends BaseController {
 
   stop() {
     this.started = false;
+    this.cordovaService.allowSleepAgain();
     if (this.timer) this.$timeout.cancel(this.timer);
     this.speechService.speak('');
   }
@@ -43,6 +44,7 @@ class SpeakController extends BaseController {
   speak() {
     if (!this.content) return;
     this.started = true;
+    this.cordovaService.keepAwake();
     this.toRead = _.compact(this.content.split('\n\n'));
     this._speak();
   }
@@ -52,6 +54,7 @@ class SpeakController extends BaseController {
     this.reading = this.toRead.shift();
     if (!this.reading) {
       // 读结束了
+      this.cordovaService.allowSleepAgain();
       this.started = false;
       return;
     }
