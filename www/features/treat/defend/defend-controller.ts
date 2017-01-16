@@ -16,9 +16,9 @@ class DefendController extends BaseController {
 
   dump;
 
-  static $inject = ['$scope', '$q', '$timeout', '$ionicScrollDelegate', common.utilService.serviceName, services.defendService.serviceName];
+  static $inject = ['$scope', '$q', '$timeout', '$ionicScrollDelegate', common.utilService.serviceName, services.defendService.serviceName, services.speechService.serviceName];
 
-  constructor(private $scope, private $q, private $timeout, private $ionicScrollDelegate, private utilService: common.utilService.Service, private defendService: services.defendService.Service) {
+  constructor(private $scope, private $q, private $timeout, private $ionicScrollDelegate, private utilService: common.utilService.Service, private defendService: services.defendService.Service, private speechService: services.speechService.Service) {
     super($scope, utilService);
     super.setModalSrc('thought', 'features/treat/defend/thought.html');
     super.setModalSrc('defend', 'features/treat/defend/defend.html');
@@ -65,6 +65,15 @@ class DefendController extends BaseController {
   exportThought() {
     this.dump = _.trim(jsyaml.dump(angular.copy(this.thoughts)));
     this.showModal('export');
+  }
+
+  speak(thought) {
+    this.speechService.speak({
+      text: thought.content,
+      rate: 1.8
+    }).catch(reason => {
+      this.utilService.alert(reason);
+    });
   }
 
 }

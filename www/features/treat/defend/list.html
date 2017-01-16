@@ -7,9 +7,9 @@
     <div id="treat-defend-list" class="lcb-selectable">
 
       <div class="card" ng-repeat="t in ctrl.thoughts track by $index">
-        <div class="item item-text-wrap">
+        <a class="item item-text-wrap" ng-click="ctrl.speak(t)">
           {{t.content}}
-        </div>
+        </a>
         <a class="item item-text-wrap item-icon-right dark" href="javascript:void(0)" ng-repeat="d in t.defends" ng-click="ctrl.showDefend(t, d)">
           <span class="lcb-bold">{{d.distortion}}</span>: {{d.content}}
           <i class="icon ion-chevron-right lcb-normal-font"></i>
